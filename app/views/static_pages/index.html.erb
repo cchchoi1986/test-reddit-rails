@@ -3,6 +3,19 @@
     <div class="col-xs-12 text-center">
       <h1>Reddit</h1>
 
+      <!-- if i have signed in, then current_user is not NIL, so current_user is true -->
+      <% if current_user %>
+        <!-- yaml is like json..arrays..hashes -->
+        <%#= current_user.to_yaml %>
+        
+        <%= current_user.email %>
+
+        <%= button_to "Sign out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path %>
+        <%= link_to "Sign up", new_user_registration_path %>
+      <% end %>
+
     </div>
   </div>
 </div>

@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>ID</th>
+      <th>Owner</th>
       <th>Title</th>
       <th>URL</th>
       <th>Time</th>
@@ -15,9 +16,10 @@
     <% @posts.each do |post| %>
       <tr>
         <td class="active"><%= post.id %></td>
+        <td class="active"><%= post.user.email %></td>
         <td class="success"><%= post.title %></td>
         <td class="warning"><%= post.url %></td>
-        <td class="danger"><%= time_ago_in_words(post.created_at) %></td>
+        <td class="danger"><%= "#{time_ago_in_words(post.created_at)}" %></td>
         <td class="info"><%= link_to "link to this post", post %></td>
       </tr>
     <% end %>

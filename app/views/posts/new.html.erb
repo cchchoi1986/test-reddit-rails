@@ -1,15 +1,12 @@
 <h1>I need a form here to create new posts</h1>
 
 <!-- This automatically do the POST method for posts -->
-<%= simple_form_for @post, :method => :post do |f| %>
+<%= form_for @post, :method => :post do |f| %>
   
   <%= flash[:message] %>
   
-  <%= @errors %>
-
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.error :title %>
 
   <%= f.label :url %>
   <%= f.text_field :url %>

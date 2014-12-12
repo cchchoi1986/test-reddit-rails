@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   # this is also function
   def create
     # post = Post.new(title: params[:post][:title], url: params[:post][:title])
-    post = Post.new(post_params)
+    post = current_user.posts.new(post_params)
     
     if post.save # this goes to the model and check all the validations before it gets saved
       # if validation passes, then it saves, and it returns true
@@ -23,7 +23,9 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       # if the record doesnt save because it didnt pass the validations
-      flash[:message] = post.errors.messages[:base]
+      # flash[:message] = post.errors.messages[:base]
+
+      flash[:message] = post.errors.messages
 
       redirect_to :back
     end
@@ -35,6 +37,9 @@ class PostsController < ApplicationController
 
     # this basically retrieve the post with a specific id
     @post = Post.find(params[:id])
+
+    # empty comment object
+    @comment = Comment.new
   end
 
   # this is only for internal use

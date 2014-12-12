@@ -32,6 +32,8 @@ gem 'spring',        group: :development
 # Good for showing error messages when form has not passed validations
 gem 'simple_form'
 
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
