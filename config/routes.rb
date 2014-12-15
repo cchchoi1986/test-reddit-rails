@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static_pages#index'
+  root 'posts#index'
 
   # get '/posts' => 'posts#index'
 
@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :comments
+  resources :users
+
+  # give the post :id, use the PostVote Controller to create a vote
+  # this is a 'post request', it's different from a 'get request'
+  post 'post_votes/:id', to: 'post_votes#create'
 
   # resources :posts
   # /posts/

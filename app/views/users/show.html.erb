@@ -1,0 +1,19 @@
+<h1>
+  <%= @user.email %>
+</h1>
+
+<h1>Posts</h1>
+<% @posts.each do |post| %>
+  <div>
+    <%= post.title %>
+    <%= post.url %>
+  </div>
+<% end %>
+
+<h1>Comments</h1>
+<% @comments.each do |comment| %>
+  <div>
+    <%= comment.content %>
+    <%= link_to "post", comment.post %>
+  </div>
+<% end %>

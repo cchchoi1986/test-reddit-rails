@@ -1,7 +1,9 @@
 <h2>Title: <%= @post.title %></h2>
-<h2>URL: <%= @post.url %></h2>
-<h2>Owner: <%= @post.user.email %></h2>
-<h2>Datetime: <%= @post.created_at %></h2>
+<h2><%= "Number of votes for this post: #{@post.post_votes.count}" %></h 2>
+
+<h1>
+  <%= link_to("ADD A VOTE", "/post_votes/#{@post.id}", :method => :post, :class => "", :id => "") %>
+</h1>
 
 <!-- We want to be able to create comments here -->
 <!-- We want a form here -->
