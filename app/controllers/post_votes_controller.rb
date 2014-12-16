@@ -1,6 +1,5 @@
 class PostVotesController < ApplicationController
-  # ignore authenticity token
-  # skip_before_filter :verify_authenticity_token
+  before_action :authenticate_user!
 
   def create
     # finds the post, given an url with right format

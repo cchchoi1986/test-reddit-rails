@@ -1,4 +1,11 @@
 class PostsController < ApplicationController
+  # we are going check the following conditions before we do any actions in this controller
+  before_action :authenticate_user!, only: [:new, :create] 
+
+  # before_action :authenticate_user!, except: [:index, :show]
+
+  # authenticate_user is provided by Devise, again Devise a a library (gem) in Ruby
+
   # shows all the posts
   def index
 		# how do I get data from database and put it here???
