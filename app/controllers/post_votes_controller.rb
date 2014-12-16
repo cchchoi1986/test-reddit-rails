@@ -1,4 +1,7 @@
 class PostVotesController < ApplicationController
+  # ignore authenticity token
+  # skip_before_filter :verify_authenticity_token
+
   def create
     # finds the post, given an url with right format
     # '/post_votes/:id'
@@ -15,6 +18,9 @@ class PostVotesController < ApplicationController
     # :key => :value
 
     new_vote = PostVote.new(:user => current_user, :post => post)
+
+    # new_vote = current_user.post_votes.new(:post => post)
+
     # new_vote = PostVote.new(:user_id => current_user.id, :post_id => post.id)
 
     if new_vote.save

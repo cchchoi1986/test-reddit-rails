@@ -1,8 +1,14 @@
 <h2>Title: <%= @post.title %></h2>
-<h2><%= "Number of votes for this post: #{@post.post_votes.count}" %></h 2>
+
+<h2>
+  Number of votes for this post: 
+  <span id="vote_count">
+    <%= @post.post_votes.count %> 
+  </span>
+</h2>
 
 <h1>
-  <%= link_to("ADD A VOTE", "/post_votes/#{@post.id}", :method => :post, :class => "", :id => "") %>
+  <%= link_to("ADD A VOTE", "#", :class => "btn_vote", 'data-id' => "#{@post.id}") %>
 </h1>
 
 <!-- We want to be able to create comments here -->
