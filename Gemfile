@@ -36,6 +36,9 @@ gem 'devise'
 
 gem 'meta_request', group: :development
 
+gem 'better_errors', group: :development
+gem 'binding_of_caller', group: :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

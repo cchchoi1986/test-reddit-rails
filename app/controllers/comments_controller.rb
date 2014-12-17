@@ -3,12 +3,22 @@ class CommentsController < ApplicationController
 
   def create
     # comment = Comment.new(comment_params)
-    comment = current_user.comments.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
 
-    if comment.save
-      redirect_to comment.post
+    if @comment.save
+      # it tells the computer that it needs to render pages in the following formats
+      respond_to do |format|
+        # order matters here. It's going to show the javascript (json) response first
+
+        # in Rails, the convention is that we need to create a file called 'create.js.erb' inside the comments view folder
+        format.js { render 'create.js.erb' }
+        format.html { redirect_to @myComment.post }
+      end
     else
-      redirect_to :back
+      respond_to do |format|
+        format.js { render 'fail.js.erb' }
+        format.html { redirect_to :back }
+      end
     end
   end
 
