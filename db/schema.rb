@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105231221) do
+ActiveRecord::Schema.define(version: 20150105234150) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 20150105231221) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

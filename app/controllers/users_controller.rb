@@ -15,7 +15,9 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update(:avatar => params[:user][:avatar])
+    if params[:user] != nil
+      @user.update(:avatar => params[:user][:avatar]) if params[:user][:avatar] != nil
+      @user.update(:resume => params[:user][:resume]) if params[:user][:resume] != nil
       redirect_to :back
     end
   end
