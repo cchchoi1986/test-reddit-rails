@@ -8,4 +8,15 @@ class UsersController < ApplicationController
     @posts = @user.posts
     @comments = @user.comments
   end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(:avatar => params[:user][:avatar])
+      redirect_to :back
+    end
+  end
 end

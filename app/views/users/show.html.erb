@@ -13,6 +13,6 @@
 <h1>Comments</h1>
   <table class="table table-condensed">
   <% @comments.each do |comment| %>
-    <%= render :partial => "posts/comment", :locals => {:x => comment}%>
+    <%= render :partial => "posts/comment", :locals => {:comment => comment}%>
   <% end %>
 </table>
