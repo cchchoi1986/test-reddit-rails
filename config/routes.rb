@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # localhost:3000/posts/new -> I expect a form where I can create new posts
   # get '/posts/new' => 'posts#new'
-
+  
   resources :posts
   resources :comments
   resources :users

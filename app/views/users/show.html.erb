@@ -11,9 +11,8 @@
 <% end %>
 
 <h1>Comments</h1>
-<% @comments.each do |comment| %>
-  <div>
-    <%= comment.content %>
-    <%= link_to "post", comment.post %>
-  </div>
-<% end %>
+  <table class="table table-condensed">
+  <% @comments.each do |comment| %>
+    <%= render :partial => "posts/comment", :locals => {:comment => comment}%>
+  <% end %>
+</table>

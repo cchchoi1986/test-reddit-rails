@@ -36,6 +36,16 @@ gem 'devise'
 
 gem 'meta_request', group: :development
 
+gem 'better_errors', group: :development
+gem 'binding_of_caller', group: :development
+
+# User profile picture
+gem "paperclip", "~> 4.2"
+# Storing profile pictures in AWS S3
+gem 'aws-sdk', '~> 1.5.7'
+# Managing Sensitive ENV variables
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

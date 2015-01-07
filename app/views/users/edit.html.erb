@@ -1,0 +1,16 @@
+<h1>Profile Picture</h1>
+<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:medium) %>
+<%= image_tag @user.avatar.url(:thumb) %>
+
+<h1>Resume</h1>
+<%= link_to "resume", @user.resume.url %>
+
+<%= form_for @user do |f| %>
+  <%= f.label "picture upload" %>
+  <%= f.file_field :avatar %>
+
+  <%= f.label "resume upload" %>
+  <%= f.file_field :resume %>
+  <%= f.submit %>
+<% end %>

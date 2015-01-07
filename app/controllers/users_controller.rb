@@ -8,4 +8,17 @@ class UsersController < ApplicationController
     @posts = @user.posts
     @comments = @user.comments
   end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if params[:user] != nil
+      @user.update(:avatar => params[:user][:avatar]) if params[:user][:avatar] != nil
+      @user.update(:resume => params[:user][:resume]) if params[:user][:resume] != nil
+      redirect_to :back
+    end
+  end
 end
