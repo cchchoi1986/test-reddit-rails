@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   URL_REGEX = /https?:\/\/[\S]+/
 
   validates :title, :length => { maximum: 140 }, :presence => true
+
   validates :url, :length => { maximum: 140 }, :allow_blank => true, :format => { with: URL_REGEX }
 
   validate :spam_free
@@ -17,7 +18,7 @@ class Post < ActiveRecord::Base
 
   def post_count
     count = Post.count
-    if count > 20
+    if count >= 20
       self.errors.add(:base, "Cannot posts more than 20 posts")
       self.errors.add(:base, "cat")
 
